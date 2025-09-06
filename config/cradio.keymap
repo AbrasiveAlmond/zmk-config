@@ -62,7 +62,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ ALL      │  Cut     │  Copy    │  Paste   │          │   │ HOME     │ PAGE DN  │ PAGE UP  │ END      │  :       │
-            &kp C(A)    &kp C(X)   &kp C(C)   &kp C(V)   &trans         &kp PG_UP  &kp HOME    &kp UP    &kp END    &kp COLON
+            &kp LC(A)    &kp LC(X)   &kp LC(C)   &kp LC(V)   &trans         &kp PG_UP  &kp HOME    &kp UP    &kp END    &kp COLON
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ DELETE   │  4       │  5       │  6       │          │   │ LEFT     │ DOWN     │ UP       │ RIGHT    │  ;       │
             &kp LGUI   &kp LALT   &kp LCTRL  &kp LSFT   &trans        &kp PG_DN   &kp LEFT   &kp DOWN  &kp RIGHT   &kp SEMI
