@@ -9,8 +9,8 @@
 #define HRML(k1,k2,k3,k4) &ht LGUI k1  &ht LALT k2  &ht LCTRL k3  &ht LSHFT k4
 #define HRMR(k1,k2,k3,k4) &ht RSHFT k1  &ht RCTRL k2  &ht RALT k3  &ht RGUI k4
 #define DEFAULT = 0
-#define LEFT = 1
-#define RIGHT = 2
+#define NAV = 1
+#define SYM = 2
 #define TRI = 3
 #define MATH = 4
 
@@ -40,7 +40,7 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
-            if-layers = <LEFT RIGHT>;
+            if-layers = <SYM NAV>;
             then-layer = <TRI>;
         };
     };
@@ -61,11 +61,11 @@
               &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Y      &kp SEMI
               HRML(A,        R,         S,         T)     &kp G          &kp M      HRMR(N,        E,        I,        O)
               &kp Z      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT    &kp APOS
-                                          &lt RIGHT TAB  &kp SPACE     &lt LEFT SPACE &mt LSHFT ENTER
+                                       &lt SYM TAB    &kp SPACE      &lt NAV SPACE   &mt LSHFT ENTER
             >;
         };
 
-        left_layer {
+        nav_layer {
             bindings = <
           //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
           //│ ALL      │  Cut     │  Copy    │  Paste   │          │   │ HOME     │ PAGE DN  │ PAGE UP  │ END      │  :       │
@@ -76,14 +76,14 @@
           //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
           //                                 |          |          |   |          |          |
           //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-              &kp LC(A)  &kp LC(X)   &kp LC(C)  &kp LC(V) &trans     &kp PG_UP  &kp HOME    &kp UP    &kp END    &kp SEMI
-              &sk LGUI   &sk LALT   &sk LCTRL  &sk LSHFT   &trans        &kp PG_DN   &kp LEFT   &kp DOWN  &kp RIGHT   &kp DEL
-             &caps_word  &kp N7     &kp N8     &kp N9     &kp N0       &kp LC(BSPC) &kp BSPC   &kp DEL     &kp DEL     &trans
-                                               &trans     &kp ESC        &trans     &trans
+            &kp LC(A)   &kp LC(X)  &kp LC(C)  &kp LC(V)   &trans        &kp PG_UP    &kp HOME  &kp UP    &kp END     &kp SEMI
+            &sk LGUI    &sk LALT   &sk LCTRL  &sk LSHFT   &trans        &kp PG_DN    &kp LEFT  &kp DOWN  &kp RIGHT   &kp DEL
+            &caps_word  &kp N7     &kp N8     &kp N9      &kp N0        &kp LC(BSPC) &kp BSPC  &kp DEL   &kp DEL     &trans
+                                              &trans      &kp ESC       &trans     &trans
             >;
         };
 
-        right_layer {
+        symbols_layer {
             bindings = <
           //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
           //│          │  [       │  {       │  }       │          │   │  ^       │  (       │  )       │  ]       │  ~       │
@@ -94,10 +94,10 @@
           //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
           //                                 |          |          |   |          |          |
           //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-              &kp APOS     &kp LT   &kp GT     &kp DQT    &kp PIPE      &kp AMPERSAND  &kp GRAVE &kp LBKT &kp RBKT &kp PERCENT
-              &kp EXCL   &kp MINUS  &kp PLUS  &kp EQUAL &kp QMARK      &kp HASH  &kp COLON &kp LPAR  &kp RPAR   &kp AT_SIGN
-              &kp CARET  &kp BSLH   &kp STAR   &kp FSLH   &trans         &kp TILDE   &kp DLLR  &kp LBRC &kp RBRC  &trans
-                                               &trans     &trans         &trans     &trans
+              &kp APOS   &kp LT     &kp GT     &kp DQT    &kp PIPE       &kp AMPERSAND &kp GRAVE &kp LBKT  &kp RBKT  &kp PERCENT
+              &kp EXCL   &kp MINUS  &kp PLUS   &kp EQUAL  &kp QMARK      &kp HASH    &kp COLON   &kp LPAR  &kp RPAR  &kp AT_SIGN
+              &kp CARET  &kp BSLH   &kp STAR   &kp FSLH   &trans         &kp TILDE   &kp DLLR    &kp LBRC  &kp RBRC  &trans
+                                               &trans     &trans         &trans      &trans
             >;
         };
 
@@ -130,10 +130,10 @@
           //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
           //                                 |          |          |   |          |          |
           //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-              &trans     &kp LBKT   &kp FSLH   &kp MINUS   &trans         &kp CARET  &kp PLUS   &kp STAR   &kp CARET   &kp EQUAL
-              &kp 1   &kp 2     &kp 3   &kp 4   &kp 5      &kp 6  &kp 7  &kp 8  &kp 9   &kp 0
-              &trans     &trans     &trans     &trans     &trans         &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE   &trans
-                                               &trans     &trans         &trans     &trans
+              &trans    &kp LBKT   &kp FSLH   &kp MINUS   &trans         &kp CARET  &kp PLUS   &kp STAR   &kp CARET  &kp EQUAL
+              &kp 1     &kp 2      &kp 3      &kp 4       &kp 5          &kp 6      &kp 7      &kp 8      &kp 9      &kp 0
+              &trans    &trans     &trans     &trans      &trans         &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE   &trans
+                                              &trans     &trans          &trans     &trans
             >;
         };
     };
