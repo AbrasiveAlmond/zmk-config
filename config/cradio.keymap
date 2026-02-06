@@ -23,18 +23,18 @@ ZMK_COMBO(cut, &kp LC(X), LB4 LB2)
 ZMK_COMBO(tab, &kp TAB, LT2 LM2)
 ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
 
-ZMK_BEHAVIOR(tri, hold_tap,
-    flavor = "balanced";
-    tapping-term-ms = <280>;
-    quick-tap-ms = <125>;
-    bindings = <&kp>, <&kp &kp &kp>;
-)
+// ZMK_BEHAVIOR(tri, hold_tap,
+//     flavor = "balanced";
+//     tapping-term-ms = <280>;
+//     quick-tap-ms = <125>;
+//     bindings = <&kp>, <&kp &kp &kp>;
+// )
 
 / {
     behaviors {
         ht: hold_tap {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <1>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
             quick-tap-ms = <150>;
@@ -64,7 +64,7 @@ ZMK_BEHAVIOR(tri, hold_tap,
           //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
           //                                 |          |          |   |          |          |
           //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-              &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Y      &tri APOS
+              &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Y      &kp APOS
       &hll SYM A  &hml LALT R      &hml LCTRL S     &hml LSHFT T     &kp G          &kp M      &hmr RSHFT N     &hmr LCTRL E     &hmr LALT I     &hlr SYM O
         &hml LGUI Z      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT    &hmr RGUI FSLH
                                        &lt NAV TAB    &lt MATH SPACE      &mt LSHFT SPACE   &lt SYM ENTER
@@ -100,7 +100,7 @@ ZMK_BEHAVIOR(tri, hold_tap,
           //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
           //                                 |          |          |   |          |          |
           //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-              &kp APOS   &kp LT     &kp GT     &kp DQT    &kp PIPE       &kp AMPERSAND &kp GRAVE &kp LBKT  &kp RBKT  &kp PERCENT
+              &kp APOS   &kp LT     &kp GT     &kp DQT    &kp PIPE     &kp AMPERSAND &kp GRAVE &kp LBKT  &kp RBKT  &kp PERCENT
               &kp EXCL   &kp MINUS  &kp PLUS   &kp EQUAL  &kp QMARK      &kp HASH    &kp COLON   &kp LPAR  &kp RPAR  &kp AT_SIGN
               &kp CARET  &kp FSLH   &kp STAR   &kp BSLH   &trans         &kp TILDE   &kp DLLR    &kp LBRC  &kp RBRC  &trans
                                                &trans     &trans         &trans      &trans
