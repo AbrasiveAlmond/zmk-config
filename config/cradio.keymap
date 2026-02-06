@@ -8,8 +8,8 @@
 #include "zmk-helpers/key-labels/36.h" // Source key-labels.
 
 // Home row mods macro
-#define HRML(k1,k2,k3,k4) &lt SYM   k1  &ht LALT k2  &ht LCTRL k3  &ht LSHFT k4
-#define HRMR(k1,k2,k3,k4) &ht RSHFT k1  &ht LCTRL k2  &ht LALT k3  &lt SYM k4
+// #define HRML(k1,k2,k3,k4) &lt SYM   k1  &ht LALT k2  &ht LCTRL k3  &ht LSHFT k4
+// #define HRMR(k1,k2,k3,k4) &ht RSHFT k1  &ht LCTRL k2  &ht LALT k3  &lt SYM k4
 #define DEFAULT 0
 #define NAV 1
 #define SYM 2
@@ -31,18 +31,6 @@ ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
 // )
 
 / {
-    behaviors {
-        ht: hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <100>;
-            bindings = <&kp>, <&kp>;
-        };
-    };
-
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
