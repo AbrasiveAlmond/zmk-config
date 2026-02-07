@@ -21,6 +21,7 @@ ZMK_COMBO(paste, &kp LC(V), LB3 LB2)
 ZMK_COMBO(cut, &kp LC(X), LB4 LB2)
 
 ZMK_COMBO(tab, &kp TAB, LT2 LM2)
+ZMK_COMBO(esc, &kp ESC, LT3 LM3)
 ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
 
 // ZMK_BEHAVIOR(tri, hold_tap,
@@ -39,6 +40,15 @@ ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
         };
     };
 
+    behaviors {
+            sclh: underscore_slash {
+                compatible = "zmk,behavior-mod-morph";
+                #binding-cells = <0>;
+                bindings = <&kp LS(MINUS)>, <&kp FSLH>;
+                mods = <(MOD_LSFT|MOD_RSFT)>;
+            };
+        };
+
     keymap {
         compatible = "zmk,keymap";
         default_layer {
@@ -52,10 +62,10 @@ ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
           //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
           //                                 |          |          |   |          |          |
           //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-              &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Y      &kp APOS
-      &hll SYM A  &hml LALT R      &hml LCTRL S     &hml LSHFT T     &kp G          &kp M      &hmr RSHFT N     &hmr LCTRL E     &hmr LALT I     &hlr SYM O
-        &hml LGUI Z      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT    &hmr RGUI FSLH
-                                       &lt NAV TAB    &lt MATH SPACE      &mt LSHFT SPACE   &lt SYM ENTER
+              &kp Q       &kp W        &kp F         &kp P         &kp B    &kp J  &kp L         &kp U         &kp Y        &kp APOS
+              &hll SYM A  &hml LALT R  &hml LCTRL S  &hml LSHFT T  &kp G    &kp M  &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I  &hlr SYM O
+              &hml LUI Z  &kp X        &kp C         &kp D         &kp V    &kp K  &kp H         &kp COMMA     &kp DOT      &hmr RGUI &sclh
+                                       &lt NAV TAB    &lt MATH SPACE        &mt LSHFT SPACE   &lt SYM ENTER
             >;
         };
 
@@ -70,10 +80,10 @@ ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
           //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
           //                                 |          |          |   |          |          |
           //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-            &kp ESC   &kp LC(X)  &kp LC(C)  &kp LC(V)   &trans          &kp PG_UP    &kp HOME  &kp UP    &kp END     &kp SEMI
-            &sk LGUI    &sk LALT   &sk LCTRL  &sk LSHFT   &trans        &kp PG_DN    &kp LEFT  &kp DOWN  &kp RIGHT   &kp DEL
-            &caps_word  &kp N7     &kp N8     &kp N9      &kp N0        &kp LC(BSPC) &kp BSPC  &kp DEL   &kp DEL     &trans
-                                              &trans      &kp ESC       &trans     &trans
+            &kp ESC   &kp LC(X)  &kp LC(C)  &kp LC(V)   &trans          &kp PG_UP    &kp HOME     &kp UP    &kp END     &trans
+            &sk LGUI    &sk LALT   &sk LCTRL  &sk LSHFT   &trans        &kp PG_DN    &kp LEFT     &kp DOWN  &kp RIGHT   &trans
+            &caps_word  &trans     &trans     &trans      &trans        &trans       &kp LC(BSPC) &kp BSPC  &kp DEL     &trans
+                                              &trans      &trans       &trans     &trans
             >;
         };
 
