@@ -24,13 +24,6 @@ ZMK_COMBO(tab, &kp TAB, LT2 LM2)
 ZMK_COMBO(esc, &kp ESC, LT3 LM3)
 ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
 
-// ZMK_BEHAVIOR(tri, hold_tap,
-//     flavor = "balanced";
-//     tapping-term-ms = <280>;
-//     quick-tap-ms = <125>;
-//     bindings = <&kp>, <&kp &kp &kp>;
-// )
-
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
