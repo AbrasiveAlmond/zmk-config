@@ -14,15 +14,21 @@
 #define NAV 1
 #define SYM 2
 #define TRI 3
-#define MATH 4
+#define FUNC 4
+#define MATH 5
 
 ZMK_COMBO(copy,  &kp LC(C), LB4 LB3)
 ZMK_COMBO(paste, &kp LC(V), LB3 LB2)
 ZMK_COMBO(cut, &kp LC(X), LB4 LB2)
 
-ZMK_COMBO(tab, &kp TAB, LT2 LM2)
+// ZMK_COMBO(tab, &kp TAB, LT2 LM2)
 ZMK_COMBO(esc, &kp ESC, LT3 LM3)
 ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
+ZMK_COMBO(underscore, &kp LS(MINUS), LM3 LB3)
+
+ZMK_COMBO(caps_wurd, &kp caps_word, LM0 RM0)
+ZMK_COMBO(func_layer, &mo FUNC, LH0 RH0)
+
 
 / {
     conditional_layers {
@@ -42,8 +48,22 @@ ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
     //         };
     //     };
 
+    macros {
+        triple: triple {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <1>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_tap &kp GRAVE &kp GRAVE &kp GRAVE>;
+            };
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
+
+        // 0
         default_layer {
             bindings = <
           //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
@@ -56,12 +76,13 @@ ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
           //                                 |          |          |   |          |          |
           //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
               &kp Q       &kp W        &kp F         &kp P         &kp B    &kp J   &kp L         &kp U         &kp Y        &kp APOS
-              &hll SYM A  &hml LALT R  &hml LCTRL S  &hml LSHFT T  &kp G    &kp M   &hmr RSHFT N  &hmr RCTRL E  &hmr RALT I  &hlr SYM O
+              &hll SYM A  &hml LALT R  &hml LCTRL S  &hml LSHFT T  &kp G    &kp M   &hmr RSHFT N  &hmr RCTRL E  &hmr LALT I  &hlr SYM O
               &hml LGUI Z &kp X        &kp C         &kp D         &kp V    &kp K   &kp H         &kp COMMA     &kp DOT      &hmr RGUI FSLH
                                        &lt NAV TAB    &lt MATH SPACE        &mt LSHFT SPACE  &lt SYM ENTER
             >;
         };
 
+        // 1
         nav_layer {
             bindings = <
           //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
@@ -75,11 +96,12 @@ ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
           //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             &kp ESC   &kp LC(X)  &kp LC(C)  &kp LC(V)   &trans          &kp PG_UP    &kp HOME     &kp UP    &kp END     &trans
             &sk LGUI    &sk LALT   &sk LCTRL  &sk LSHFT   &trans        &kp PG_DN    &kp LEFT     &kp DOWN  &kp RIGHT   &trans
-            &caps_word  &trans     &trans     &trans      &trans        &trans       &kp LC(BSPC) &kp BSPC  &kp DEL     &trans
+            &caps_word  &sk RALT   &trans     &trans      &trans        &LC(BSPC)    &kp BSPC     &trans    &kp DEL     &trans
                                               &trans      &trans       &trans     &trans
             >;
         };
 
+        // 2
         symbols_layer {
             bindings = <
           //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
@@ -98,6 +120,7 @@ ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
             >;
         };
 
+        // 3
         tri_layer {
             bindings = <
           //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
@@ -116,6 +139,17 @@ ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
             >;
         };
 
+        // 4
+        func_layer {
+            bindings = <
+            &F1  &F2     &F3        &F4    &F5    &F6     &F7     &F8     &F9    &F10
+            &F11  &F12     &F13     &F14   &F15    &F16     &F17     &F18     &F19    &F20
+            &PRINTSCREEN     &trans     &trans    &trans &trans    &trans     &trans     &trans     &trans     &trans
+                                               &trans     &trans         &trans     &trans
+            >;
+        };
+
+        // 5
         math_layer {
             bindings = <
           //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
@@ -133,5 +167,6 @@ ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
                                               &trans      &trans          &trans     &trans
             >;
         };
+
     };
 };
