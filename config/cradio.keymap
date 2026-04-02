@@ -96,7 +96,7 @@ ZMK_COMBO(func_layer, &mo FUNC, LH0 RH0)
           //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             &kp ESC     &kp LC(X)  &kp LC(C)  &kp LC(V)   &trans       &kp PG_UP    &kp HOME     &kp UP     &kp END     &trans
             &sk LGUI    &sk LALT   &sk LCTRL  &sk LSHFT   &trans       &kp PG_DN    &kp LEFT     &kp DOWN   &kp RIGHT   &trans
-            &caps_word  &sk RALT   &trans     &trans      &trans       &LC(BSPC)    &kp BSPC     &trans     &kp DEL     &trans
+            &trans      &sk RALT   &trans     &trans      &trans       &LC(BSPC)    &kp BSPC     &trans     &kp DEL     &trans
                                               &trans      &trans       &trans       &trans
             >;
         };
