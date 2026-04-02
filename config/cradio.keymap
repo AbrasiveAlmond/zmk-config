@@ -55,10 +55,10 @@ ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
           //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
           //                                 |          |          |   |          |          |
           //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-              &kp Q       &kp W        &kp F         &kp P         &kp B    &kp J  &kp L         &kp U         &kp Y        &kp APOS
-              &hll SYM A  &hml LALT R  &hml LCTRL S  &hml LSHFT T  &kp G    &kp M  &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I  &hlr SYM O
-              &hml LGUI Z  &kp X        &kp C         &kp D         &kp V    &kp K  &kp H         &kp COMMA     &kp DOT      &hmr RGUI &sclh
-                                       &lt NAV TAB    &lt MATH SPACE        &mt LSHFT SPACE   &lt SYM ENTER
+              &kp Q       &kp W        &kp F         &kp P         &kp B    &kp J   &kp L         &kp U         &kp Y        &kp APOS
+              &hll SYM A  &hml LALT R  &hml LCTRL S  &hml LSHFT T  &kp G    &kp M   &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I  &hlr SYM O
+              &hml LGUI Z &kp X        &kp C         &kp D         &kp V    &kp K   &kp H         &kp COMMA     &kp DOT      &hmr RGUI sclh
+                                       &lt NAV TAB    &lt MATH SPACE        &mt LSHFT SPACE  &lt SYM ENTER
             >;
         };
 
@@ -129,7 +129,7 @@ ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
           //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
               &trans    &kp LBKT   &kp FSLH   &kp MINUS   &trans         &kp CARET  &kp PLUS   &kp STAR   &kp CARET  &kp EQUAL
               &kp N1    &kp N2     &kp N3     &kp N4      &kp N5         &kp N6     &kp N7     &kp N8     &kp N9     &kp N0
-              &trans    &trans     &trans     &trans      &trans         &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE   &trans
+              &trans    &trans     &trans     &trans      &trans         &kp AMPS   &kp UNDER  &kp PLUS   &trans   &trans
                                               &trans      &trans          &trans     &trans
             >;
         };
