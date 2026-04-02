@@ -15,7 +15,7 @@ ZMK_HOLD_TAP(hml,
     hold-trigger-on-release;
 )
 
-/* Left-hand HRMs. */
+/* Left-pinky momentary layer mod. */
 ZMK_HOLD_TAP(hll,
     flavor = "balanced";
     tapping-term-ms = <280>;
@@ -38,7 +38,7 @@ ZMK_HOLD_TAP(hmr,
 )
 
 
-/* Right-hand HRMs. */
+/* Right-pinky momentary layer mod. */
 ZMK_HOLD_TAP(hlr,
     flavor = "balanced";
     tapping-term-ms = <280>;
