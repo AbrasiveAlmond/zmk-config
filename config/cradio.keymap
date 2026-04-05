@@ -26,6 +26,13 @@ ZMK_COMBO(esc, &kp ESC, LT3 LM3)
 ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
 ZMK_COMBO(underscore, &kp LS(MINUS), LM3 LB3)
 
+
+ZMK_COMBO(bspc, &kp BSPC, RM1 RB1)
+ZMK_COMBO(delete, &kp DEL, RM3 RB3)
+ZMK_COMBO(bspc2, &kp BSPC, RB1 RB2)
+ZMK_COMBO(delete2, &kp DEL, RB2 RB3)
+
+
 // ZMK_COMBO(caps_wurd, &kp caps_word, LM0 RM0)
 ZMK_COMBO(func_layer, &mo FUNC, LH0 RH0)
 
