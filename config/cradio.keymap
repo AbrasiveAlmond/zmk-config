@@ -33,8 +33,8 @@ ZMK_COMBO(bspc2, &kp BSPC, RB1 RB2)
 ZMK_COMBO(delete2, &kp DEL, RB2 RB3)
 
 
-// ZMK_COMBO(caps_wurd, &kp caps_word, LM0 RM0)
-ZMK_COMBO(func_layer, &mo FUNC, LH0 RH0)
+ZMK_COMBO(caps_wurd, &caps_word, LM1 RM1)
+// ZMK_COMBO(func_layer, &mo FUNC, LH0 RH0)
 
 
 / {
@@ -98,15 +98,15 @@ ZMK_COMBO(func_layer, &mo FUNC, LH0 RH0)
         nav_layer {
             bindings = <
           //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-          //│ ALL      │  Cut     │  Copy    │  Paste   │          │   │ HOME     │ PAGE DN  │ PAGE UP  │ END      │  :       │
+          //│ ALL      │  CUT     │  COPY    │  PASTE   │          │   │ HOME     │ PAGE DN  │ PAGE UP  │ END      │  :       │
           //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
           //│ DELETE   │  4       │  5       │  6       │          │   │ LEFT     │ DOWN     │ UP       │ RIGHT    │  ;       │
           //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-          //│ CAPS     │  7       │  8       │  9       │  0       │   │CTRL-BSPC │ BSPC     │          │          │          │
+          //│ CAPS     │  7       │  8       │  9       │  0       │   │CTRL-BSPC │ BSPC     │          │ DEL      │          │
           //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
           //                                 |          |          |   |          |          |
           //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-            &kp ESC     &kp LC(X)  &kp LC(C)  &kp LC(V)   &trans       &kp PG_UP    &kp HOME     &kp UP     &kp END     &trans
+            &kp LC(A)   &kp LC(X)  &kp LC(C)  &kp LC(V)   &trans       &kp PG_UP    &kp HOME     &kp UP     &kp END     &trans
             &sk LGUI    &sk LALT   &sk LCTRL  &sk LSHFT   &trans       &kp PG_DN    &kp LEFT     &kp DOWN   &kp RIGHT   &trans
             &sk RALT    &kp LC(X)  &kp LC(C)  &kp LC(V)   &trans       &kp LC(BSPC) &kp BSPC     &trans     &kp DEL     &trans
                                               &trans      &trans       &trans       &trans
