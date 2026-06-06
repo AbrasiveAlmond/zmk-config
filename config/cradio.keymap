@@ -21,21 +21,14 @@ ZMK_COMBO(copy,  &kp LC(C), LB4 LB3)
 ZMK_COMBO(paste, &kp LC(V), LB3 LB2)
 ZMK_COMBO(cut, &kp LC(X), LB4 LB2)
 
-// ZMK_COMBO(tab, &kp TAB, LT2 LM2)
 ZMK_COMBO(esc, &kp ESC, LT3 LM3)
 ZMK_COMBO(semi, &kp SEMI, RT4 RM4)
 ZMK_COMBO(underscore, &kp LS(MINUS), LM3 LB3)
 
-
-ZMK_COMBO(bspc, &kp BSPC, RM1 RB1)
-ZMK_COMBO(delete, &kp DEL, RM3 RB3)
-ZMK_COMBO(bspc2, &kp BSPC, RB1 RB2)
-ZMK_COMBO(delete2, &kp DEL, RB2 RB3)
-
-
 ZMK_COMBO(caps_wurd, &caps_word, LM1 RM1)
-// ZMK_COMBO(func_layer, &mo FUNC, LH0 RH0)
 
+ZMK_COMBO(resetleft, &sys_reset, LT5 LT1)
+ZMK_COMBO(resetright, &sys_reset, RT1 RT5)
 
 / {
     conditional_layers {
@@ -60,17 +53,25 @@ ZMK_COMBO(caps_wurd, &caps_word, LM1 RM1)
     //         };
     //     };
 
-    //macros {
-    //    triple: triple {
-    //        compatible = "zmk,behavior-macro";
-    //        #binding-cells = <1>;
-    //        wait-ms = <40>;
-    //        tap-ms = <40>;
-    //        bindings
-    //            = <&macro_tap &kp 0 &kp 0 &kp 0>;
-    //        };
-    //    };
-    //};
+    macros {
+        triple_repeat: triple_repeat {
+            compatible = "zmk,behavior-macro";
+            binding-cells = <1>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <> <&macro_tap &key_repeat &key_repeat>;
+            };
+        };
+
+        tr: triple_ht {
+            compatible = "zmk,behavior-hold-tap";
+            binding-cells = <2>;
+            tapping-term-ms = <150>;
+            flavor = "hold-preferred";
+            bindings = <&kp> <&triple_repeat>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -125,7 +126,7 @@ ZMK_COMBO(caps_wurd, &caps_word, LM1 RM1)
           //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
           //                                 |          |          |   |          |          |
           //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-            &kp APOS    &kp LT      &kp GT     &kp DQT    &kp PIPE      &kp AMPERSAND   &kp GRAVE   &kp LBKT    &kp RBKT    &kp PERCENT
+            &tr APOS    &kp LT      &kp GT     &tr DQT    &kp PIPE      &kp AMPERSAND   &tr GRAVE   &kp LBKT    &kp RBKT    &kp PERCENT
             &kp EXCL    &kp MINUS   &kp PLUS   &kp EQUAL  &kp QMARK     &kp HASH        &kp COLON   &kp LPAR    &kp RPAR    &kp AT_SIGN
             &kp CARET   &kp FSLH    &kp STAR   &kp BSLH   &trans        &kp TILDE       &kp DLLR    &kp LBRC    &kp RBRC    &trans
                                                &trans     &trans        &trans          &trans
