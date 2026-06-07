@@ -56,7 +56,7 @@ ZMK_COMBO(caps_wurd, &caps_word, LM1 RM1)
     macros {
         triple_repeat: triple_repeat {
             compatible = "zmk,behavior-macro";
-            #binding-cells = <1>;
+            #binding-cells = <0>;
             wait-ms = <40>;
             tap-ms = <40>;
             bindings
