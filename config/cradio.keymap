@@ -61,7 +61,6 @@ ZMK_COMBO(caps_wurd, &caps_word, LM1 RM1)
             tap-ms = <40>;
             bindings
                 = <&macro_tap &key_repeat &key_repeat>;
-            };
         };
 
         tr: triple_ht {
