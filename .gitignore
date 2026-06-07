@@ -1,1 +1,10 @@
 artifacts
+build
+zmk
+zephyr
+zmk-helpers
+.github
+boards
+.west
+modules
+shell.nix
