@@ -27,8 +27,8 @@ ZMK_COMBO(underscore, &kp LS(MINUS), LM3 LB3)
 
 ZMK_COMBO(caps_wurd, &caps_word, LM1 RM1)
 
-ZMK_COMBO(lreset, &sys_reset, LT5 LT1)
-ZMK_COMBO(rreset, &sys_reset, RT1 RT5)
+//ZMK_COMBO(lreset, &sys_reset, LT5 LT1)
+//ZMK_COMBO(rreset, &sys_reset, RT1 RT5)
 
 / {
     conditional_layers {
